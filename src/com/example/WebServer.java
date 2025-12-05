@@ -125,7 +125,6 @@ public class WebServer {
             return sb.toString();
         }
 
-        // 修复重复的isValid拼写错误！！！
         static boolean isValidUsername(String username) {
             // 只允许字母、数字、下划线，长度3-20
             return username != null && Pattern.matches("^[a-zA-Z0-9_]{3,20}$", username);
@@ -134,32 +133,6 @@ public class WebServer {
         // 获取用户的上传目录
         static String getUserUploadDir(String username) {
             return Paths.get(UPLOAD_DIR, username).toString();
-        }
-
-        // 删除用户的所有文件
-        static boolean deleteUserFiles(String username) {
-            try {
-                Path userDir = Paths.get(getUserUploadDir(username));
-                if (Files.exists(userDir)) {
-                    Files.walkFileTree(userDir, new SimpleFileVisitor<Path>() {
-                        @Override
-                        public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                            Files.delete(file);
-                            return FileVisitResult.CONTINUE;
-                        }
-
-                        @Override
-                        public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
-                            Files.delete(dir);
-                            return FileVisitResult.CONTINUE;
-                        }
-                    });
-                }
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
         }
     }
 
@@ -176,7 +149,6 @@ public class WebServer {
             return sessionId;
         }
 
-        // 修复方法名：原代码是validateValidSession，改为validateSession
         static String validateSession(String sessionId) {
             if (sessionId == null) return null;
 
@@ -974,4 +946,5 @@ public class WebServer {
         }
         return params;
     }
+
 }
