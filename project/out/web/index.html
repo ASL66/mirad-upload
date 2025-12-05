@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Web服务器 - Linux文件上传</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📁</text></svg>">
+</head>
+<body>
+    <!-- 错误提示弹窗 -->
+    <div class="error-modal" id="error-modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-error-modal">&times;</span>
+            <h3>错误提示</h3>
+            <p id="error-message"></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Java Web服务器</h1>
+            <p class="subtitle">Linux环境下的文件上传服务</p>
+        </header>
+        
+        <div class="dashboard">
+            <div class="upload-section">
+                <h2>文件上传</h2>
+                <div class="upload-box">
+                    <form id="upload-form">
+                        <div class="file-drop-area" id="drop-zone">
+                            <span class="file-msg">拖放文件到此处或点击选择</span>
+                            <input type="file" id="file-input" multiple>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="progress-bar"></div>
+                            <span class="progress-text" id="progress-text">0%</span>
+                        </div>
+                        <div class="error-msg" id="upload-error"></div>
+                        <button type="button" id="upload-btn" class="upload-btn">上传文件</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="file-list-section">
+            <div class="section-header">
+                <h2>已上传文件</h2>
+                <button id="refresh-btn" class="refresh-btn">刷新列表</button>
+            </div>
+            <div class="file-list" id="file-list">
+                <div class="no-files">正在加载文件列表...</div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025 Java Web服务器 | 基于Linux环境</p>
+            <p>当前时间: <span id="current-time"></span></p>
+        </footer>
+    </div>
+    
+    <!-- 删除确认弹窗 -->
+    <div class="confirm-modal" id="confirm-modal">
+        <div class="modal-content">
+            <h3>确认删除</h3>
+            <p id="confirm-message"></p>
+            <div class="modal-buttons">
+                <button class="btn-cancel" id="cancel-delete">取消</button>
+                <button class="btn-confirm" id="confirm-delete">确认删除</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

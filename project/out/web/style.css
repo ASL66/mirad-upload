@@ -1,0 +1,470 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    padding: 30px;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #eaeaea;
+}
+
+h1 {
+    color: #1a2a6c;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1.2rem;
+}
+
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.server-info, .upload-section {
+    flex: 1;
+    min-width: 300px;
+}
+
+.info-card {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.label {
+    font-weight: 600;
+    color: #555;
+}
+
+.value {
+    color: #1a2a6c;
+    font-weight: 500;
+}
+
+.upload-box {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+h2 {
+    color: #1a2a6c;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.file-drop-area {
+    border: 2px dashed #1a2a6c;
+    border-radius: 10px;
+    padding: 40px 20px;
+    text-align: center;
+    transition: all 0.3s;
+    cursor: pointer;
+    margin-bottom: 25px;
+    background-color: #f0f4ff;
+    position: relative;
+}
+
+.file-drop-area:hover, .file-drop-area.dragover {
+    background-color: #e1e7ff;
+    border-color: #0d6efd;
+}
+
+.file-msg {
+    display: block;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.progress-container {
+    margin: 25px 0;
+    background: #e9ecef;
+    border-radius: 5px;
+    height: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #1a2a6c, #0d6efd);
+    border-radius: 5px;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.upload-btn {
+    background: linear-gradient(135deg, #1a2a6c, #0d6efd);
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(26, 42, 108, 0.3);
+}
+
+.upload-btn:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.upload-btn:not(:disabled):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(26, 42, 108, 0.4);
+}
+
+.file-list-section {
+    margin-top: 30px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.refresh-btn {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.refresh-btn:hover {
+    background: #5a6268;
+}
+
+.file-list {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.2s;
+}
+
+.file-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.file-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.file-name {
+    font-weight: 500;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 5px;
+}
+
+.file-meta {
+    display: flex;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.file-size {
+    margin-right: 15px;
+}
+
+.file-date {
+    font-style: italic;
+}
+
+.file-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-download {
+    background: #198754;
+    color: white;
+}
+
+.btn-delete {
+    background: #dc3545;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+.no-files {
+    text-align: center;
+    padding: 30px;
+    color: #666;
+    font-style: italic;
+}
+
+footer {
+    text-align: center;
+    padding: 25px 0 10px;
+    color: #666;
+    margin-top: 40px;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+}
+
+#current-time {
+    font-weight: 600;
+    color: #1a2a6c;
+}
+
+/* 错误消息样式 */
+.error-msg {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin: 10px 0;
+    min-height: 20px;
+    text-align: center;
+    display: none;
+}
+
+/* 错误模态框 */
+.error-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+.modal-content h3 {
+    color: #dc3545;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction: column;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .file-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .file-actions {
+        margin-top: 10px;
+        align-self: flex-end;
+    }
+}
+
+/* 确认弹窗样式 */
+.confirm-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirm-modal .modal-content {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.confirm-modal h3 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 1.4em;
+}
+
+.confirm-modal p {
+    margin: 0 0 20px 0;
+    color: #666;
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-cancel, .btn-confirm {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.btn-cancel {
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.btn-cancel:hover {
+    background-color: #e9ecef;
+}
+
+.btn-confirm {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-confirm:hover {
+    background-color: #c82333;
+}
