@@ -1,0 +1,25 @@
+server:
+  port: ${SERVER_PORT:8081}
+  address: ${SERVER_ADDRESS:0.0.0.0}
+  servlet:
+    session:
+      timeout: ${MIRAD_SESSION_TIMEOUT:60m}
+      cookie:
+        name: sessionId
+        http-only: true
+        same-site: lax
+        secure: ${MIRAD_COOKIE_SECURE:false}
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: ${MIRAD_MAX_FILE_SIZE:50MB}
+      max-request-size: ${MIRAD_MAX_REQUEST_SIZE:100MB}
+
+mirad:
+  data-dir: ${MIRAD_DATA_DIR:./data}
+  max-files-per-upload: ${MIRAD_MAX_FILES_PER_UPLOAD:10}
+  cors-allowed-origins:
+    - http://localhost:8080
+    - http://127.0.0.1:8080
+    - http://121.41.1.134:9090

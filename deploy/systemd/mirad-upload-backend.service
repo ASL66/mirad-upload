@@ -1,0 +1,16 @@
+[Unit]
+Description=Mirad Upload Backend Service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/mirad-upload/backend
+ExecStart=/usr/bin/java -jar /opt/mirad-upload/backend/target/mirad-upload-backend-1.0.0.jar --server.address=127.0.0.1 --server.port=8081 --mirad.data-dir=/opt/mirad-upload/data
+Restart=always
+RestartSec=5
+User=root
+Environment=MIRAD_COOKIE_SECURE=false
+Environment=MIRAD_SESSION_TIMEOUT=60m
+
+[Install]
+WantedBy=multi-user.target
