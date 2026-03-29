@@ -97,4 +97,4 @@ mvn clean package -DskipTests
 
 ## 部署文档
 
-详细部署请查看 [DEPLOY_SERVER.md](../DEPLOY_SERVER.md)。
+详细部署请查看 [DEPLOY_SERVER.md](DEPLOY_SERVER.md)。
